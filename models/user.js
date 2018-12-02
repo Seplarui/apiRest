@@ -36,3 +36,5 @@ UserSchema.methods.gravatar= function() {
     const md5=crypto.createHash('md5').update(this.email).digest('hex');
     return `https://gravatar.com/avatar/${md5}?s=200&d=retro`
 }
+
+module.exports=mongoose.model('User',UserSchema);
