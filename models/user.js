@@ -16,10 +16,10 @@ const UserSchema = new Schema({
 
 UserSchema.pre('save', (next) => {
     let user = this;
-    if (!user.isModified('password')) return next()
+    //if (!user.isModified('password')) return next()
 
     bcrypt.genSalt(10, (err, salt) => {
-        if (error) return next();
+        if (err) return next();
 
         bcrypt.hash(user.password, salt, null, (err, hash) => {
             if (err) return next(err);
